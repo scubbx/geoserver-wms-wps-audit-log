@@ -1,11 +1,12 @@
 {
-    "geoserveraudit" : {
-        "title" : "GeoServer Audit Log",
+    "dop20geoserver" : {
+        "title" : "DOP20 - GeoServer Log",
         "description" : "The Audit Log of GeoServer",
         "url" : "http://docs.geoserver.org/stable/en/user/extensions/monitoring/audit.html",
+        "opid-field" : "sapordernumber",
         "regex" : {
             "basic" : {
-                "pattern" : "^(?<timestamp>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{0,3}\\+01)\\|(?<runtime>.*?)\\|(?<errorflag>.*?)\\|(?<hostip>.*?)\\|(?<responsetype>.*?)\\|(?<responsesize>.*?)\\|(?<remoteaddress>.*?)\\|(?<servicetype>.*?)\\|(?<serviceversion>.*?)\\|(?<serviceoperation>.*?)\\|(?<layername>.*?)\\|(?<imagewidth>.*?)\\|(?<imageheight>.*?)\\|(?<pixelsize>.*?)\\|(?<srs>.*?)\\|(?<x1>.*?)\\|(?<y1>.*?)\\|(?<x2>.*?)\\|(?<y2>.*?)$"
+                "pattern" : "^(?<timestamp>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{0,3})?\\+\\d{2})\\|(?<runtime>.*?)\\|(?<sapordernumber>.*?)\\|(?<errorflag>.*?)\\|(?<hostip>.*?)\\|(?<responsetype>.*?)\\|(?<responsesize>.*?)\\|(?<remoteaddress>.*?)\\|(?<servicetype>.*?)\\|(?<serviceversion>.*?)\\|(?<serviceoperation>.*?)\\|(?<layername>.*?)\\|(?<imagewidth>.*?)\\|(?<imageheight>.*?)\\|(?<pixelsize>.*?)\\|(?<srs>.*?)\\|(?<x1>.*?)\\|(?<y1>.*?)\\|(?<x2>.*?)\\|(?<y2>.*?)$"
             }
         },
         "timestamp-field" : "timestamp",
@@ -13,8 +14,11 @@
             "runtime" : {
                 "kind" : "integer"
             },
+            "sapordernumber" : {
+                "kind" : "string"
+            },
             "errorflag" : {
-                "kind" : "integer"
+                "kind" : "string"
             },
             "hostip" : {
                 "kind" : "string"
@@ -67,7 +71,7 @@
         },
         "sample" : [
             {
-                "line" : "2017-12-28T14:42:31.201+01|349|success|129.43.202.241|application/zip|1127831|45.8.2.93|WPS|1.0.0|Execute|test:layer|144|130|18720|EPSG:31255|234729|245291|234873|245421"
+                "line" : "2017-12-28T14:42:31.201+01|349|0003756819|success|10.6.7.24|application/zip|1127831|10.6.7.53|WPS|1.0.0|Execute|bev:deflate|144|130|18720|EPSG:31255|234729|245291|234873|245421"
             }
         ]
     }
